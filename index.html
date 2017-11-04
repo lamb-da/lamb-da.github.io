@@ -1,20 +1,20 @@
 <!doctype html>
 <title>
-    Party Parrot as a Service
+    Sheepy as a Service
 </title>
-<link rel="stylesheet" type="text/css" href="PPaaS.css">
+<link rel="stylesheet" type="text/css" href="lamb-da.css">
 <script>
-    const basicParrotImage = "https://ppaas.herokuapp.com/partyparrot"
+    const basicSheepyImage = "https://lamb-da.herokuapp.com/sheepy"
     var imageHeightChanged = 20;
     var imageWidthChanged = 20;
 
-    function parrotify() {
-        var parrotOverlayImage = document.getElementById("parrot").value;
-        var parrotOverlayOffsetX = document.getElementById("horizontalPosition").value;
-        var parrotOverlayOffsetY = document.getElementById("verticalPosition").value;
-        var newImprovedParrot = basicParrotImage + "?overlay=" + parrotOverlayImage + "&overlayWidth=" + imageWidthChanged + "&overlayHeight=" + imageHeightChanged + "&overlayOffsetX=" + parrotOverlayOffsetX + "&overlayOffsetY=" + parrotOverlayOffsetY;
-        document.getElementById("parrotImage").src = newImprovedParrot;
-        document.getElementById("parrotImageURL").value = newImprovedParrot;
+    function sheepyify() {
+        var sheepyOverlayImage = document.getElementById("sheepy").value;
+        var sheepyOverlayOffsetX = document.getElementById("horizontalPosition").value;
+        var sheepyOverlayOffsetY = document.getElementById("verticalPosition").value;
+        var newImprovedSheepy = basicSheepyImage + "?overlay=" + sheepyOverlayImage + "&overlayWidth=" + imageWidthChanged + "&overlayHeight=" + imageHeightChanged + "&overlayOffsetX=" + sheepyOverlayOffsetX + "&overlayOffsetY=" + sheepyOverlayOffsetY;
+        document.getElementById("sheepyImage").src = newImprovedSheepy;
+        document.getElementById("sheepyImageURL").value = newImprovedSheepy;
     }
 
     function getImageSize(url) {
@@ -28,7 +28,7 @@
             imageHeightChanged = 20;
             imageWidthChanged = Math.round((imageWidthOriginal/imageHeightOriginal)*imageHeightChanged);
             document.getElementById("error").innerHTML=""
-            parrotify();
+            sheepyify();
         }
         image.src = url;
     }
@@ -37,7 +37,7 @@
         percentageDecimal = percentage/100;
         imageHeightChanged = 20 * percentageDecimal;
         imageWidthChanged = Math.round((imageWidthOriginal/imageHeightOriginal)*20) * percentageDecimal;
-        parrotify();
+        sheepyify();
     }
 
     function showImagePercentage(newValue) {
@@ -53,31 +53,30 @@
     }
 </script>
 <body>
-    <h1>Party Parrot as a Service</h1>
+    <h1>Sheepy as a Service</h1>
     <p>Enter an image URL to overlay:</p>
-    <input type="text" id="parrot" value="Enter a URL here" onchange="getImageSize(this.value)" />
+    <input type="text" id="sheepy" value="Enter a URL here" onchange="getImageSize(this.value)" />
     <p id="error" style="color:#ff0000"></p>
     <p>Change the image size:</p>
     <input type="range" min="0" max="200" value="100" id="sizeChange" oninput="showImagePercentage(this.value)" onchange="changeOverlainImageSize(this.value)" />
     <span id="sizeChangeDisplay">100</span><span>%</span>
     <p>Set the overlain image horizontal position:</p>
-    <input type="range" min="-30" max="30" value="0" id="horizontalPosition" oninput="showValueHorizontal(this.value)" onchange="parrotify()" />
+    <input type="range" min="-30" max="30" value="0" id="horizontalPosition" oninput="showValueHorizontal(this.value)" onchange="sheepyify()" />
     <span id="rangeHorizontalPosition">0</span> <span>pixels</span>
     <p>Set the overlain image vertical position:</p>
-    <input type="range" min="-30" max="30" value="0" id="verticalPosition" oninput="showValueVertical(this.value)" onchange="parrotify()" />
+    <input type="range" min="-30" max="30" value="0" id="verticalPosition" oninput="showValueVertical(this.value)" onchange="sheepyify()" />
     <span id="rangeVerticalPosition">0</span> <span>pixels</span>
     <br />
-    <a class="button-small" onclick="parrotify()">Refresh the parrot!</a>
+    <a class="button-small" onclick="sheepyify()">Refresh the sheepy!</a>
     <br />
     <br />
-    <img src="https://ppaas.herokuapp.com/partyparrot" id="parrotImage">
+    <img src="https://lamb-da.herokuapp.com/sheepy" id="sheepyImage">
     <br />
     <span>URL of the new image:</span>
     <br />
-    <input type="text" id="parrotImageURL" value="https://ppaas.herokuapp.com/partyparrot" />
+    <input type="text" id="sheepyImageURL" value="https://lamb-da.herokuapp.com/sheepy" />
     <hr />
-    <a class="button-small" href="http://cultofthepartyparrot.com/">Cult of the Party Parrot</a>
-    <a class="button-small" href="https://github.com/francoislg/PPaaS">PPaaS on GitHub</a>
-    <a class="button-small" href="https://github.com/parrotify/parrotify.github.io">This page on GitHub</a>
+    <a class="button-small" href="https://github.com/lamb-da/Lamb-Da">Lamb-Da on GitHub</a>
+    <a class="button-small" href="https://github.com/lamb-da/lamb-da.github.io">This page on GitHub</a>
     <hr />
 </body>
